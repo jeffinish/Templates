@@ -1,0 +1,111 @@
+\documentclass[11p, %Define o tamanho da fonte do arquivo
+			   openany, %Diz que o arquivo pode começar capitulos qualquer lado da folha (Se retirar, capitulos sempre começarão na pagina da frente da folha)
+			   twoside, %Define o arquivo frente e verso
+			   brazil %Define a linguagem do arquivo para ser Português, para hifenização e etc. Caso sejam inseridos multiplos idomas, o último será considerado o padrão.
+			   ]{article}
+\usepackage[a4paper, 
+			bindingoffset=0.2in,
+			left=2cm,
+			right=2cm,
+			top=3cm,
+			bottom=2cm]{geometry} %Define o tipo de papel do arquivo e margens customizadas.
+
+% ---
+% Pacotes básicos
+% ---
+\usepackage[T1]{fontenc}				% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}				% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}				% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}						% Controle das cores
+\usepackage{graphicx}					% Inclusão de gráficos
+\graphicspath{{images/}{../images/}}	% Define uma pasta para incluir as imagens (A mesma do arquivo /images)
+\usepackage{microtype} 					% Melhorias de justificação
+\usepackage{setspace}
+\usepackage[brazilian]{babel}			%Traduz os comandos nativos do Latex para português, como por 		exemplo, os ambientes Teorema e etc.
+% ---
+
+% ---
+% Pacotes adicionais
+% ---
+\usepackage[light,math]{kurier}         %Altera Fonte Utilizada no arquivo
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathrsfs}
+\allowdisplaybreaks[1]
+\usepackage{mathtools}
+\usepackage{csquotes}					% Pacote para colocar palavras entre aspas do jeito bonito
+\usepackage{enumitem}
+\usepackage{xfrac}
+\usepackage{faktor}
+
+% ---
+% Tikz
+% ---
+\usepackage{xcolor}
+\usepackage{tkz-euclide}				% Pacote Tikz um pouco mais intuitivo de usar do que o TikZ
+\definecolor{ros}{RGB}{255,51,102}
+
+%--%--%
+
+% -- Comandos Personalizados -- %
+\newcommand{\mb}[2]{\mathbb{#1}^{#2}}		%Comando para usar \mathbb (Conjunto dos números reais, etc)
+\newcommand{\der}{\text{d}}					%Comando para fazer o d da derivada no ambiente matemático
+\newcommand{\mca}[1]{\mathcal{#1}}			%Comando para fazer letras caligráfcas
+\newcommand{\fak}[2]{\fak{#1}{#2}}			%Comando para escrever quociente de grupos
+\newcommand{\Terminar}{\color{ros}{TERMINAR!!}}
+\renewcommand{\qedsymbol}{\textcolor{ros}{\openbox}} %Comando para colorir o elemento \qedsymbol 
+
+% -- Ambientes -- %
+\newtheoremstyle{thm}{ }{ }{\itshape}{ }{\bfseries}{:}{ }{ } %Define o estilo de ambiente Thm da seguinte maneira: o corpo do texto é e itálico (\itshape), o nome do ambiente é em negrito (\bfseries) e a separação entre o nome do ambiente e o corpo é feito por ":".
+\theoremstyle{thm}							%Os ambientes definidos abaixo receberão as configurações do estilo thm. 
+%O argumento [text] no final diz qual será a numeração seguida por aquele ambiente. \newtheorem{cor}{Corolário}[section] diz que os Corolários serão enumerados por Seção, ou seja, a cada se seção, a numeração recomeçarã.
+\newtheorem{teo}{Teorema}					%Ambiente Teorema enumerado por aula 
+\newtheorem{cor}{Corolário}[section]		%Ambiente Corolário
+\newtheorem{prop}{Proposição}				%Ambiente Proposição enumerado por aula (seções)
+\newtheorem{lema}{Lema}						%Ambiente Lema
+
+\newtheoremstyle{definicao}{ }{ }{ }{ }{\bfseries}{:}{ }{ }  %Define o estilo de ambiente "definição", como feito acima
+\theoremstyle{definicao}
+\newtheorem{dfn}{Definição}					%Ambiente Definição
+\newtheorem*{obs}{Observação}				%Ambiente Observação
+\newtheorem{ex}{Exemplo}					%Ambiente Exemplo enumerado por aula (seções)
+%\newtheorem*{dmst}{Demonstração}			%Ambiente Demonstração (Por praticidade/costume, eu utilizo \begin{proof)
+\newtheorem*{afrm}{Afirmação}				%Ambiente Afirmação
+\newtheorem*{afrmproof}{Demonstração da afirmação}	%Ambiente "Demonstração da afirmação"
+\newtheorem*{exerc}{Exercício}
+
+% -- Pacote extra -- %
+\usepackage{subfiles}  %Pacote necesário para incluir outros arquivos (Indicado carregar como último pacote)
+
+\title{Um arquivo base para digitar outras coias}   	%Define o título do arquivo
+\author{Jefferson Silva \\								%Define o autor do arquivo
+		\small{jeffauh@gmail.com}
+		}
+\date{\today}											%Define a data do arquivo
+
+\begin{document}
+	
+\maketitle						%Imprime o título do arquivo com Titulo, Autor e data.
+
+\frenchspacing					%Tá aqui para ajustar alguns espaçamentos entre palavras
+\onehalfspacing					%Espaçamento de 1.5 entre linhas.
+
+\section{Uma primeira seção}
+
+Vamos começar o arquivo daqui.
+
+\subfile{sections/Parte1}
+
+\section{Outra seção}
+
+Colocar aqui mais uma seção só pra ficar legalzinho.
+
+\subsection{Uma subseção que começa fora do subarquivo}
+
+Imagina que você começa a digitar uma subseção. \subfile{sections/Parte2}
+
+% Bibliografia
+
+\nocite{*}						  %Inclui na bibliografia mesmo os valores que não são referenciados ao longo do texto
+\bibliographystyle{apalike}			%Define o estilo da bibliografia
+\bibliography{Biblio}				%Define o arquivo de Bibliografia Biblio.bbl
+\end{document}
+ 
