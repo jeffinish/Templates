@@ -1,0 +1,168 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil,english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{microtype}
+\usepackage{csquotes}
+
+\usepackage{tikz}
+\graphicspath{{images/}}
+
+\usepackage[light,math]{kurier}
+\usetheme{CambridgeUS}
+
+
+%\usecolortheme{dove}
+
+
+% - Customiza o título - %
+\setbeamercolor{title}{fg=red!60!black}
+% Customiza o background
+\setbeamertemplate{background}{
+	\begin{picture}(0,250)(-230,0)
+	\begin{tikzpicture}
+	\node[opacity=0.1]{\includegraphics[scale=0.75]{Logomarca_jpg.jpg}};
+	\end{tikzpicture}
+	\end{picture}
+}
+
+% - Customiza o título do frame - %
+\setbeamercolor{frametitle}{fg=red!60!black, bg=white} 
+\makeatletter
+\setbeamertemplate{frametitle}
+{
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+	\@tempdima=\textwidth%
+	\advance\@tempdima by\beamer@leftmargin%
+	\advance\@tempdima by\beamer@rightmargin%
+	\pgfsetfillopacity{.1}       %<------ fix filling opacity
+	\begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+		\usebeamerfont{frametitle}%
+		\vbox{}\vskip-1ex%
+		\if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+		\strut\pgfsetfillopacity{1}\insertframetitle\strut\par%  <---- text opacity
+		{%
+			\ifx\insertframesubtitle\@empty%
+			\else%
+			{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+			\fi
+		}%
+		\vskip-1ex%
+		\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+	\end{beamercolorbox}%
+}
+\makeatother
+
+%(https://tex.stackexchange.com/questions/270082/beamer-how-to-set-frametitle-box-translucent-so-that-backeground-image-can-be)
+
+% - Customimza o ambiente de Teorema - %
+\setbeamercolor{block title}{use=structure, fg=white, bg=red!60!black}
+\setbeamercolor{block body}{use=structure, fg=black, bg=white!96!black}
+
+
+% - Customiza o headline - %
+\setbeamercolor{headline}{fg=white, bg=red!60!black}
+\makeatletter
+ \setbeamertemplate{headline}{%
+ 	\leavevmode
+ 	\hbox{
+ 	\begin{beamercolorbox}[ht=1.25ex,dp=1.25ex]{headline}%
+ 	\end{beamercolorbox}%
+ 	}
+	\begin{center}
+		\includegraphics[scale=0.1]{Capture.PNG}
+	\end{center}
+}
+\makeatother
+
+
+% - Customiza o footline  - %
+\setbeamercolor{title in head/foot}{fg=white, bg=white!50!black}
+\setbeamercolor{author in head/foot}{fg=white!30!black, bg=white!80!black}
+\makeatletter
+\setbeamertemplate{footline}{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor~~\beamer@ifempty{\insertshortinstitute}{}
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatother
+
+% - Customiza o estilo dos ambientes Itemize e Enumerate - %
+\setbeamertemplate{enumerate item}{\color{red!60!black}\insertenumlabel)}
+\setbeamertemplate{enumerate subitem}{\color{red!60!black}\insertenumlabel.\insertsubenumlabel)}
+\setbeamertemplate{enumerate subsubitem}{\color{red!60!black}\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel)}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\color{red!60!black}\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\color{red!60!black}\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\color{red!60!black}\donotcoloroutermaths$\blacktriangleright$}}
+
+% - Customiza o estilo do Table of Contents - % 
+
+\setbeamertemplate{section in toc}[square]
+
+\setbeamerfont{section number projected}{size=\large}
+\setbeamercolor{section number projected}{bg=white!70!black,fg=red!60!black}
+%\setbeamertemplate{section in toc}{%
+%	\leavevmode\leftskip=1.75ex%
+%	\llap{%
+%		\usebeamerfont*{section number projected}%
+%		\usebeamercolor[bg]{section number projected}%
+%		\vrule width2.25ex height1.85ex depth.4ex%
+%		\hskip-2.25ex%
+%		\hbox to2.25ex{\hfil\color{fg}\inserttocsectionnumber\hfil}}%
+%	\kern1.25ex\inserttocsection\par}
+
+
+\begin{document}
+	\mode<presentation>
+	\title[Ponto Fixo]{Teorema de Existência e Unicidade da Solução de um PVI}
+	\subtitle{}
+%	\logo{\includegraphics[scale=0.2]{ufop.jpg}}
+	\institute[UFOP]{Universidade Federal de Ouro Preto}%{\includegraphics[scale=0.2]{Capture.PNG}}
+	\author[Jefferson Silva]{Jefferson Barbosa Amorim Silva}
+	\date{\today}
+	\frame{\maketitle}
+	\begin{frame}{Sumário}
+		\tableofcontents
+	\end{frame}
+	\begin{frame}
+		\begin{itemize}
+			\item Test
+			\begin{itemize}
+				\item Teste
+				\begin{itemize}
+					\item Test
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+		\begin{enumerate}
+			\item Olá
+			\begin{enumerate}
+				\item  Hello
+				\begin{enumerate}
+					\item Bonjour
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{frame}
+	\section{Teorema do Ponto Fixo de Banach}
+	\begin{frame}
+		\begin{theorem}[Teorema do Ponto Fixo de Banach]
+			Seja M=(M,d) um espaço métrico não-vazio. Sejam $M$ completo e $T:M\rightarrow{M}$ uma contração em M. Então T possui um único ponto fixo.
+		\end{theorem}
+	\end{frame}
+\end{document}

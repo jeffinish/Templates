@@ -1,0 +1,2 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Teorema do Ponto Fixo de Banach}{4}{0}{1}
