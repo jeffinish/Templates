@@ -3,7 +3,7 @@
 			   twoside, %Define o arquivo frente e verso
 			   brazil %Define a linguagem do arquivo para ser Português, para hifenização e etc. Caso sejam inseridos multiplos idomas, o último será considerado o padrão.
 			   ]{article}
-\usepackage[a4paper, 
+\usepackage[a4paper,
 			bindingoffset=0.2in,
 			left=2cm,
 			right=2cm,
@@ -51,13 +51,13 @@
 \newcommand{\mca}[1]{\mathcal{#1}}			%Comando para fazer letras caligráfcas
 \newcommand{\fak}[2]{\fak{#1}{#2}}			%Comando para escrever quociente de grupos
 \newcommand{\Terminar}{\color{ros}{TERMINAR!!}}
-\renewcommand{\qedsymbol}{\textcolor{ros}{\openbox}} %Comando para colorir o elemento \qedsymbol 
+\renewcommand{\qedsymbol}{\textcolor{ros}{\openbox}} %Comando para colorir o elemento \qedsymbol
 
 % -- Ambientes -- %
 \newtheoremstyle{thm}{ }{ }{\itshape}{ }{\bfseries}{:}{ }{ } %Define o estilo de ambiente Thm da seguinte maneira: o corpo do texto é e itálico (\itshape), o nome do ambiente é em negrito (\bfseries) e a separação entre o nome do ambiente e o corpo é feito por ":".
-\theoremstyle{thm}							%Os ambientes definidos abaixo receberão as configurações do estilo thm. 
+\theoremstyle{thm}							%Os ambientes definidos abaixo receberão as configurações do estilo thm.
 %O argumento [text] no final diz qual será a numeração seguida por aquele ambiente. \newtheorem{cor}{Corolário}[section] diz que os Corolários serão enumerados por Seção, ou seja, a cada se seção, a numeração recomeçarã.
-\newtheorem{teo}{Teorema}					%Ambiente Teorema enumerado por aula 
+\newtheorem{teo}{Teorema}					%Ambiente Teorema enumerado por aula
 \newtheorem{cor}{Corolário}[section]		%Ambiente Corolário
 \newtheorem{prop}{Proposição}				%Ambiente Proposição enumerado por aula (seções)
 \newtheorem{lema}{Lema}						%Ambiente Lema
@@ -82,7 +82,7 @@
 \date{\today}											%Define a data do arquivo
 
 \begin{document}
-	
+
 \maketitle						%Imprime o título do arquivo com Titulo, Autor e data.
 
 \frenchspacing					%Tá aqui para ajustar alguns espaçamentos entre palavras
@@ -108,4 +108,3 @@ Imagina que você começa a digitar uma subseção. \subfile{sections/Parte2}
 \bibliographystyle{apalike}			%Define o estilo da bibliografia
 \bibliography{Biblio}				%Define o arquivo de Bibliografia Biblio.bbl
 \end{document}
- 
