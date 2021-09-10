@@ -33,7 +33,7 @@ Além disso, permite uma padronização na organização do arquivo, como por ex
 * O tão importante `\usepackage{faktor}` para digitar quocientes de maneira diferente de frações;
 * Inclusão do `\usepackage{tkz-euclide}` para construção de diagramas e figuras geométricas diretamente no LaTeX;
 #### Personalizações
-* <span style=" color:#ff3366"> Define a cor que eu utilizo sempre que possível} com o seu cigo em RGB.</span> `\definecolor{ros}{RGB}{255,51,102}`
+* <span style=" color:#ff3366"> Define a cor que eu utilizo sempre que possível com o seu código em RGB.</span> `\definecolor{ros}{RGB}{255,51,102}`
 * Define novos comandos para digitar de maneira prática os algumas letras que sao utilizadas com frequência, como a representação do conjunt dos inteiros, reais e etc com `\newcommand{\mb}[2]{\mathbb{#1}^{#2}}` e de letras caligráficas com `\newcommand{\mca}[1]{\mathcal{#1}}`;
 * Define de maneira simples algo que sempre me incomodou, que é uma maneira de digitar d*x* ao invés de *dx* dentro de integrais. Para isso, basta definir `\newcommand{\der}{\text{d}}` ara ter o *d* como texto dentro do ambiente matemático.
 * Muda a cor do quadradinho que aparece no final de demonstrações para rosa, com o comando `\renewcommand{\qedsymbol}{\textcolor{ros}{\openbox}}`
